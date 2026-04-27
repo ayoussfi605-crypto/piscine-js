@@ -1,6 +1,6 @@
 const clone1 = {...person};
 const clone2 = {...person};
-const samePerson = person;
+let samePerson = person;
 
-person.age++
-person.country = 'FR'
+person.age++;
+person.country = 'FR';
