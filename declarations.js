@@ -1,4 +1,4 @@
-const escapeStr = "`, \ , / , \" , '" ;
+const escapeStr = "`, \ , / , \"" ;
 const arr = [4 , '2'];
 const obj = {
     str : "",
@@ -21,4 +21,3 @@ Object.freeze(obj)
 Object.freeze(nested)
 Object.freeze(nested.arr)
 Object.freeze(nested.obj)
-
