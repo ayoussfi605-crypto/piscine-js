@@ -1,7 +1,7 @@
 
 is.num = (arg) =>  typeof arg == "number" 
     
-is.nan = (arg) =>  typeof arg !== "number" 
+is.nan = (arg) =>  typeof arg == "number" 
 
 is.str = (arg) =>  typeof arg == "string" 
 
