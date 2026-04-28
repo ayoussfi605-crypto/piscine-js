@@ -15,5 +15,6 @@
 
 const sign = nbr => nbr === 0 ? 0 : (nbr > 0 ? 1 : -1) 
 
-const sameSign = (a,b) => (a < 0 && b < 0) || (a > 0 && b > 0) ? true : false;
+const sameSign = (a,b) => (a < 0 && b < 0) || (a > 0 && b > 0) || (a == 0 && b == 0)? true : false;
+console.log(sameSign(0,0));
 
