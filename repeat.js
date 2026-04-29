@@ -5,5 +5,6 @@ function repeat(str, nbr){
         console.log(str)
         cont++;
     }
+    return str
 };  
 
