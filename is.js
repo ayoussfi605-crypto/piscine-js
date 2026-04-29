@@ -13,7 +13,7 @@ is.def = (arg) =>  typeof arg !== "undefined"
 
 is.arr = (arg) =>  Array.isArray(arg)
 
-is.obj = (arg) =>  typeof arg == "object" && arg !== null
+is.obj = (arg) =>  typeof arg == "object" && arg !== null && !Array.isArray(arg)
 
 is.fun = (arg) =>  typeof arg == "function"
 
