@@ -1,3 +1,4 @@
+String.prototype.repeat = undefined
 
 function repeat(str, nbr){
     let cont = 0
