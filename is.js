@@ -1,7 +1,7 @@
 
 is.num = (arg) =>  typeof arg == "number" 
     
-is.nan = (arg) =>  typeof arg == "number" 
+is.nan = (arg) =>  Number.isNaN(arg)
 
 is.str = (arg) =>  typeof arg == "string" 
 
@@ -11,12 +11,12 @@ is.undef = (arg) =>  typeof arg == "undefined"
 
 is.def = (arg) =>  typeof arg !== "undefined"
 
-is.arr = (arg) =>  typeof arg == "object"
+is.arr = (arg) =>  Array.isArray(arg)
 
-is.obj = (arg) =>  typeof arg == "object"
+is.obj = (arg) =>  typeof arg == "object" && arg !== null
 
 is.fun = (arg) =>  typeof arg == "function"
 
 is.truthy = (arg) =>  !!arg;
 
-is.falsy = (arg) =>  !!arg;
+is.falsy = (arg) =>  !arg;
