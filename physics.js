@@ -1,4 +1,4 @@
-def = (arg) =>  typeof arg !== "undefined"
+const def = (arg) =>  typeof arg !== "undefined"
 function getAcceleration(data){
     if(def(data.f) && def(data.m) && data.m != 0){
         return data.f/data.m
