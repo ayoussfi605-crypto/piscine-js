@@ -8,4 +8,3 @@ function repeat(str, nbr){
     }
     return str
 };  
-
