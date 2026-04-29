@@ -44,17 +44,20 @@ function divide(a,b){
 
 function modulo(a,b){
 
-    const negative = (!sameSign(a, b))
+    if (b == 0){
+        return
+    }
+
+    const negative = a < 0;
 
     if (a < 0) a = -a;
     if (b < 0) b = -b; 
 
-    if (b == 0){
-        return
-    }
-    let res = a  
+    let res = a ; 
+
     while (res >= b){
-        res = res - b
+        res = res - b;
     }   
-    return negative ? res : -res;
+    return negative ? -res : res;
 };
+
