@@ -56,5 +56,5 @@ function modulo(a,b){
     while (res >= b){
         res = res - b
     }   
-    return negative ? -res : res;
+    return negative ? res : -res;
 };
