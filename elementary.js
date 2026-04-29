@@ -4,9 +4,11 @@ function multiply(a,b){
     let res = 0
     let cont = 0
     while (cont < b){
-       res = a+a
+       res = res + a
         cont++
     }   
+    console.log(res);
+    
    return res
 };
 
@@ -15,10 +17,14 @@ function divide(a,b){
      if (b == 0){
         return
     }
+
     let cont = 0
     while (a > 0){
-      a = a - b
-      cont++
+        if (a-b < 0){
+            break
+        }
+         a = a - b
+        cont++
     }   
     return cont
 };
@@ -31,7 +37,7 @@ function modulo(a,b){
     while (res >= b){
         res = res - b
     }   
-    console.log(res);
+    return res
 };
 
 // function modulo(a,b){
