@@ -1,4 +1,3 @@
-let str = 'abcdef'
 
 function cutFirst(str){
     let res = ""
@@ -61,5 +60,3 @@ function keepFirstLast(str){
     }
     return res
 }
-
-console.log(keepLast(str));
