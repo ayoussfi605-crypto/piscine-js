@@ -1,4 +1,3 @@
-let arr = "ayoub"
 
 function slice(arr, start, end){
 
