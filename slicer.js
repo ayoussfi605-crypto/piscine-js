@@ -27,4 +27,3 @@ function slice(arr, start, end){
     }
     return slc
 }
-console.log(slice(arr, 2))
