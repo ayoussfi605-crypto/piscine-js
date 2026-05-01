@@ -1,7 +1,4 @@
 
-let arr = ['ee', 'ff', 'g', '']
-
-
 function split(str, sep){
 
     if(sep === ''){
@@ -32,7 +29,6 @@ function split(str, sep){
 }
 
 
-
 function join(arr, sep){
     let res = ""
     for(let i = 0 ; i < arr.length ; i++){
@@ -44,4 +40,3 @@ function join(arr, sep){
     }
     return res
 }
-console.log(join(arr, ','));
