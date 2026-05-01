@@ -1,6 +1,6 @@
 function vowelDots(str){
-return str.replace(/[aeiou]/ig, '$&.')
+    let vowels = /[aeiou]/ig
+return str.replace(vowels, '$&.')
 
 }
 
-console.log(vowelDots("ayoub"));
