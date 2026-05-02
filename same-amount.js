@@ -8,4 +8,3 @@ function sameAmount(str , rgx1, rgx2){
     }
     return res
 }
-
