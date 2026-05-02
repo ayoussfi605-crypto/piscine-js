@@ -14,3 +14,4 @@ function pyramid(str,nbr){
     return res
 }
 
+console.log(pyramid('**', 5));
