@@ -1,15 +1,13 @@
-let rgx01 = /a/g
-let rgx02 = /c/g
-
-function sameAmount(str , rgx1, rgx2){
 
 
-    res = str.match(rgx1).length === str.match(rgx2).length
-    console.log(str.match(rgx1).length);
+function sameAmount(str , rgx01 , rgx02){
+    let r1 = new RegExp(rgx01.source, "g")
+    let r2 = new RegExp(rgx02.source, "g")
+    let res = Boolean
+    res = str.match(r1)?.length === str.match(r2)?.length 
     if (str === null){
         return false
     }
     return res
 }
 
-console.log(sameAmount("aaabbbcc", rgx01 , rgx02));
