@@ -15,3 +15,4 @@ function triangle(str, nbr){
     return res
 }
 
+i*2 -1
