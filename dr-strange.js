@@ -16,15 +16,12 @@ function addWeek(date) {
 }
 
 
-
-
 function timeTravel({ date, hour, minute, second }){
   let newobj = new Date(date)
   newobj.setHours(hour) 
   newobj.setMinutes(minute)
   newobj.setSeconds(second)
   return newobj
-  
 }
 
 
