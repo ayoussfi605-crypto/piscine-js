@@ -16,9 +16,8 @@ export const getActive = () => {
     return [actv, noactv]
 }
 export const getBonannoPisano = () => {
-    let bonanno = [...document.getElementById("BonannoPisano")]
+    let bonanno = document.getElementById("BonannoPisano")
     let remainingActives = [...document.querySelectorAll("a.classical.active:not(#BonannoPisano)")]
     return [bonanno, remainingActives]
 }
-
 
