@@ -12,7 +12,7 @@ export const getClassical = () => {
 
 export const getActive = () => {
     let actv = [...document.querySelectorAll("a.classical.active")]
-    let noactv = [...document.querySelectorAll("(a.classical:not(.active))")]
+    let noactv = [...document.querySelectorAll("a.classical:not(.active)")]
     return [actv, noactv]
 }
 export const getBonannoPisano = () => {
