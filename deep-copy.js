@@ -17,6 +17,3 @@ function deepCopy(arg){
     }
 }
 
-// const example = [{a: 1, b: [4, 5]}, [1, {d: 4}], 4]
-const example2 = [console.log, /hello/]
-console.log(deepCopy(example2))
