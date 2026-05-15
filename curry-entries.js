@@ -29,12 +29,10 @@ const filterForce = (personnelObj) => {
   return filterCurry(([k, v]) => v.isForceUser && v.shootingScore >= 80)(personnelObj);
 };
 
-const mapAverage = (personnelObj) => {
-  return mapCurry(([k, v]) => {
-    const average = (v.pilotingScore + v.shootingScore) / 2;
-    return [
-      k,
-      { ...v, averageScore: average }
-    ];
-  })(personnelObj);
-};
+function mapAverage(personnel){
+    const mapFunc = ([k, v])=>{
+        v.averageScore = (v.pilotingScore + v.shootingScore) / 2
+        return [k, v]
+    }
+    return mapCurry(mapFunc)(personnel)
+}
