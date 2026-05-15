@@ -1,84 +1,40 @@
-function defaultCurry(obj1) {
-    return function (obj2) {
-        const newObj = { ...obj2 }
-        for (let key in obj1) {
-            if (newObj[key] === undefined) {
-                newObj[key] = obj1[key]
-            }
-        }
-        return newObj
-    }
-}
+const defaultCurry = (obj1) => (obj2) => {
+  return { ...obj1, ...obj2 };
+};
 
-function mapCurry(func) {
-    return function (obj) {
-        const objArr = Object.entries(obj)
-        const mappedObjArr = objArr.map(func)
-        const newObj = Object.fromEntries(mappedObjArr)
-        return newObj
-    }
-}
+const mapCurry = (fn) => (obj) => {
+  const entries = Object.entries(obj);
+  const mappedEntries = entries.map(([k, v]) => fn([k, v]));
+  return Object.fromEntries(mappedEntries);
+};
 
-function reduceCurry(func) {
-    return function (obj, start) {
-        const objArr = Object.entries(obj)
-        let reducedValue
-        if (start === undefined) {
-            reducedValue = objArr.slice(1).reduce(func, objArr[0])
-        } else {
-            reducedValue = objArr.reduce(func, start)
-        }
-        return reducedValue
-    }
-}
+const reduceCurry = (fn) => (obj, initialValue) => {
+  const entries = Object.entries(obj);
+  return entries.reduce((acc, [k, v]) => fn(acc, [k, v]), initialValue);
+};
 
-function filterCurry(func) {
-    return function (obj) {
-        const objArr = Object.entries(obj)
-        const filteredObjArr = objArr.filter(func)
-        const newObj = Object.fromEntries(filteredObjArr)
-        return newObj
-    }
-}
-
-function reduceScore(personnel, start){
-    const filterFunc = ([k, v]) =>{
-        return v.isForceUser
-    }
-    const filteredObj = filterCurry(filterFunc)(personnel)
-    const reduceFunc = (acc, [k, v]) =>{
-        return acc + v.pilotingScore + v.shootingScore
-    }
-    const reducedValue = reduceCurry(reduceFunc)(filteredObj, start)
-    return reducedValue
-}
-
-function filterForce(personnel){
-    const filterFunc = ([k, v]) =>{
-        return v.isForceUser && v.shootingScore >= 80
-    }
-    return filterCurry(filterFunc)(personnel)
-}
-
-function mapAverage(personnel){
-    const mapFunc = ([k, v])=>{
-        v.averageScore = (v.pilotingScore + v.shootingScore) / 2
-        return [k, v]
-    }
-    return mapCurry(mapFunc)(personnel)
-}
+const filterCurry = (fn) => (obj) => {
+  const entries = Object.entries(obj);
+  const filteredEntries = entries.filter(([k, v]) => fn([k, v]));
+  return Object.fromEntries(filteredEntries);
+};
 
 
+const reduceScore = (personnelObj) => {
+  const forceUsers = filterCurry(([k, v]) => v.isForceUser)(personnelObj);
+  return reduceCurry((acc, [k, v]) => acc + v.pilotingScore + v.shootingScore)(forceUsers, 0);
+};
 
+const filterForce = (personnelObj) => {
+  return filterCurry(([k, v]) => v.isForceUser && v.shootingScore >= 80)(personnelObj);
+};
 
-
-
-
-
-
-
-
-
-/* 
-const result = mapAverage(personnel)
-console.log(result) */
+const mapAverage = (personnelObj) => {
+  return mapCurry(([k, v]) => {
+    const average = (v.pilotingScore + v.shootingScore) / 2;
+    return [
+      k,
+      { ...v, averageScore: average }
+    ];
+  })(personnelObj);
+};
