@@ -4,22 +4,22 @@ const guests = process.argv[2] || "."
 try{
     const read = await readdir(guests);
     let result;
-    // read.forEach((elm, indx) =>{      
-    //         let name = elm.split('.')[0]
-    //         let [firstname, lastname] = name.split('_');
-    //        result += `${indx+1}. ${lastname} ${firstname}` ;         
-    // })
 
-
-    read.map((elm) =>{      
+ let x = read.map((elm) =>{      
             let name = elm.split('.')[0]
-           result += name.split('_').reverse().join(' ');   
-        })
-        console.log(result);
+           result = name.split('_').reverse().join(' '); 
+           return result 
+        }).sort()
 
-     
-    
+        let count = 0
+   let a = x.map((el) =>{
+        count++
+         let f =`${count}. ${el}` 
+         console.log(f);
+         return f
+    }) 
+
 }catch(err){
     console.log(err);
-    
+
 }
